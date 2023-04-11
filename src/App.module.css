@@ -1,0 +1,99 @@
+.container {
+  width: 800px;
+}
+
+.titleCtn {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 20px 0;
+  margin-bottom: 50px;
+}
+
+.scoreCtn {
+  display: flex;
+  justify-content: space-between;
+}
+
+.scoreCtn h3 {
+  margin-top: 0;
+  padding: 20px 0;
+  background-color: #181848;
+  color: #fff;
+}
+
+.score {
+  width: 200px;
+  background-color: #fff;
+  margin-bottom: 20px;
+}
+.results {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 100px;
+  height: 200px;
+}
+
+.playerHand,
+.computerHand {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  background-color: #fff;
+  width: 200px;
+  height: 200px;
+  border-radius: 5px;
+}
+
+.resultsWinner {
+  font-size: 32px;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+.resultsMessage {
+  color: #fff;
+  font-size: 22px;
+}
+
+.choiceBtnCtn {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+
+.choiceBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: none;
+  background-color: white;
+  color: black;
+}
+
+.playerBtn{
+  background-color: bisque;
+  padding: 10px 30px;
+  margin-top: 50px;
+  color: black;
+  font-weight: bold;
+}
+
+.bounce {
+  transition:all 0.2s ease-in-out;
+
+}
+.bounce:hover {
+  transform: translateY(-15px);
+}
+
+
+.activeChoice {
+  background-color:orange;
+}
+h1,
+p {
+  color: #181848;
+}
