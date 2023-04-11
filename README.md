@@ -1,1 +1,1 @@
-# react-projects
+# react-rock-paper-scissors-app
