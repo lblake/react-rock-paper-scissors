@@ -93,6 +93,11 @@
 .activeChoice {
   background-color:orange;
 }
+
+.timer {
+  color: #fff;
+  font-size: 150px;
+}
 h1,
 p {
   color: #181848;

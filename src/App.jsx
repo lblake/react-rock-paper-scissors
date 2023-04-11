@@ -5,12 +5,26 @@ import {
   FaRegHandScissors,
 } from 'react-icons/fa';
 import styles from './App.module.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function App() {
   const [playerHand, setPlayerHand] = useState(0);
 
   const [computerHand, setComputerHand] = useState(0);
+
+  const [timer, setTimer] = useState(3);
+  const [runTimer, setRunTimer] = useState(false);
+
+  useEffect(() => {
+    if (runTimer && timer > 0) {
+      setTimeout(() => {
+        setTimer(timer -1);
+      }, 1000);
+    } else if (runTimer && timer < 1) {
+      setRunTimer(false);
+      setTimer(3);
+    }
+  }, [runTimer,timer]);
 
   const selectOption = (handIndex) => {
     setPlayerHand(handIndex);
@@ -22,7 +36,9 @@ function App() {
   };
 
   const start = () => {
+    setRunTimer(true)
     generateComputerHand();
+    
   };
 
   const options = [
@@ -31,8 +47,10 @@ function App() {
     { name: 'scissors', icon: <FaRegHandScissors size={60} /> },
   ];
 
-  console.log('playerHand', playerHand);
-  console.log('computerHand', computerHand);
+  // console.log('playerHand', playerHand);
+  // console.log('computerHand', computerHand);
+
+  // console.log("timer", timer)
   return (
     <div className={styles.container}>
       <div className={styles.titleCtn}>
@@ -51,19 +69,18 @@ function App() {
       </div>
       <div className={styles.results}>
         <div className={styles.playerHand}>
-          <p id='rockIcon'>
-            {options[playerHand].icon}
-          </p>
+          <p id='rockIcon'>{options[playerHand].icon}</p>
           <p>{options[playerHand].name}</p>
         </div>
+
         <div className={styles.midCol}>
-          <p className={styles.resultsWinner}>Winner:Player</p>
-          <p className={styles.resultsMessage}>Rock beats scissors</p>
+          { runTimer && <p className={styles.timer}>{timer}</p>}
+          {/* <p className={styles.resultsWinner}>Winner:Player</p>
+          <p className={styles.resultsMessage}>Rock beats scissors</p> */}
         </div>
+
         <div className={styles.computerHand}>
-          <p id='rockIcon'>
-            {options[computerHand].icon}
-          </p>
+          <p id='rockIcon'>{options[computerHand].icon}</p>
           <p>{options[computerHand].name}</p>
         </div>
       </div>
