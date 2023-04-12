@@ -73,7 +73,7 @@
   color: black;
 }
 
-.playerBtn{
+.playerBtn {
   background-color: bisque;
   padding: 10px 30px;
   margin-top: 50px;
@@ -82,22 +82,53 @@
 }
 
 .bounce {
-  transition:all 0.2s ease-in-out;
-
+  transition: all 0.2s ease-in-out;
 }
 .bounce:hover {
   transform: translateY(-15px);
 }
 
-
 .activeChoice {
-  background-color:orange;
+  background-color: orange;
 }
 
 .timer {
   color: #fff;
-  font-size: 150px;
+  font-size: 100px;
 }
+
+.playerShake {
+  margin: 60px;
+  color: black;
+  animation: playerShakeAnimation 0.2s ease-in-out infinite;
+}
+
+.computerShake {
+  margin: 60px;
+  color: black;
+  animation: computerShakeAnimation 0.2s ease-in-out infinite;
+}
+
+@keyframes playerShakeAnimation {
+  0%,
+  100% {
+    transform: rotate(100deg);
+  }
+  50% {
+    transform: rotate(80deg);
+  }
+}
+
+@keyframes computerShakeAnimation {
+  0%,
+  100% {
+    transform: scaleY(-1) rotate(-80deg);
+  }
+  50% {
+    transform: scaleY(-1) rotate(-100deg);
+  }
+}
+
 h1,
 p {
   color: #181848;

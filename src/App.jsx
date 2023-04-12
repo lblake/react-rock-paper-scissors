@@ -54,7 +54,7 @@ function App() {
   return (
     <div className={styles.container}>
       <div className={styles.titleCtn}>
-        <h1>ROCK, PAPER, SCISSORS</h1>
+        <h1>ROCK,PAPER,SCISSORS</h1>
         <p>React Game</p>
       </div>
       <div className={styles.scoreCtn}>
@@ -69,8 +69,9 @@ function App() {
       </div>
       <div className={styles.results}>
         <div className={styles.playerHand}>
-          <p id='rockIcon'>{options[playerHand].icon}</p>
-          <p>{options[playerHand].name}</p>
+        {runTimer && <div className={styles.playerShake}>{options[0].icon}</div>}
+          {/* <p id='rockIcon'>{options[playerHand].icon}</p>
+          <p>{options[playerHand].name}</p> */}
         </div>
 
         <div className={styles.midCol}>
@@ -80,8 +81,10 @@ function App() {
         </div>
 
         <div className={styles.computerHand}>
-          <p id='rockIcon'>{options[computerHand].icon}</p>
-          <p>{options[computerHand].name}</p>
+        {runTimer && <div className={styles.computerShake}>{options[0].icon}</div>}
+
+          {/* <p id='rockIcon'>{options[computerHand].icon}</p>
+          <p>{options[computerHand].name}</p> */}
         </div>
       </div>
       <div className={styles.choiceBtnCtn}>
