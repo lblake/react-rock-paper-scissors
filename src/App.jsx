@@ -19,6 +19,11 @@ function App() {
     message: '',
   });
 
+  const [score, setScore] = useState({
+    player: 0,
+    computer: 0,
+  });
+
   useEffect(() => {
     if (runTimer && timer > 0) {
       setTimeout(() => {
@@ -32,6 +37,8 @@ function App() {
   }, [runTimer, timer]);
 
   const selectOption = (handIndex) => {
+    setResults({ message: '', winner: '' });
+
     setPlayerHand(handIndex);
   };
 
@@ -67,31 +74,37 @@ function App() {
       options[computerHand].name === 'paper'
     ) {
       setResults({ winner: 'Computer', message: 'Paper beats rock!!' });
+      setScore({ ...score, computer: score.computer + 1 });
     } else if (
       options[playerHand].name === 'rock' &&
       options[computerHand].name === 'scissors'
     ) {
       setResults({ winner: 'Player', message: 'Rock beats scissors!!' });
+      setScore({ ...score, player: score.player + 1 });
     } else if (
       options[playerHand].name === 'paper' &&
       options[computerHand].name === 'rock'
     ) {
       setResults({ winner: 'Player', message: 'Paper beats rock!!' });
+      setScore({ ...score, player: score.player + 1 });
     } else if (
       options[playerHand].name === 'paper' &&
       options[computerHand].name === 'scissors'
     ) {
       setResults({ winner: 'Computer', message: 'Scissors beats paper!!' });
+      setScore({ ...score, computer: score.computer + 1 });
     } else if (
       options[playerHand].name === 'scissors' &&
       options[computerHand].name === 'rock'
     ) {
       setResults({ winner: 'Computer', message: 'Rock beats scissors!!' });
+      setScore({ ...score, computer: score.computer + 1 });
     } else if (
       options[playerHand].name === 'scissors' &&
       options[computerHand].name === 'paper'
     ) {
       setResults({ winner: 'Player', message: 'Scissors beats paper!!' });
+      setScore({ ...score, player: score.player + 1 });
     }
   };
 
@@ -110,11 +123,11 @@ function App() {
       <div className={styles.scoreCtn}>
         <div className={styles.score}>
           <h3>Player</h3>
-          <p>Score: 0 </p>
+          <p>Score: {score.player} </p>
         </div>
         <div className={styles.score}>
           <h3>Computer</h3>
-          <p>Score: 0</p>
+          <p>Score: {score.computer}</p>
         </div>
       </div>
       <div className={styles.results}>
