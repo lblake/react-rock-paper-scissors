@@ -131,7 +131,11 @@ function App() {
         </div>
       </div>
       <div className={styles.results}>
-        <div className={styles.playerHand}>
+        <div
+          className={`${styles.playerHand} ${
+            results.winner === 'Player' ? styles.winnerAnimation : ''
+          }`}
+        >
           {runTimer && (
             <div className={styles.playerShake}>{options[0].icon}</div>
           )}
@@ -153,7 +157,11 @@ function App() {
           )}
         </div>
 
-        <div className={styles.computerHand}>
+        <div
+          className={`${styles.computerHand} ${
+            results.winner === 'Computer' ? styles.winnerAnimation : ''
+          }`}
+        >
           {runTimer && (
             <div className={styles.computerShake}>{options[0].icon}</div>
           )}
